@@ -22,7 +22,7 @@ int main(void)
         return 0;
     }
 
-    for (t = 0.0;; t += 0.1)
+    for (t = 0.0; ; t += 0.1)
     {
         v = g * t;
         y = g * t * t / 2.0;
