@@ -2,22 +2,37 @@
 
 int main(void)
 {
-    float ylimit;
-    double g = 9.8;
-    double y = 0.0;
-    double v = 0.0;
+    double ylimit;
+    double g = 3.71;
+    double y;
+    double v;
     double t;
-    scanf("%f", &ylimit);
-    if (ylimit <= 0)
+
+    scanf("%lf", &ylimit);
+
+    if (ylimit < 0)
     {
-        printf("NG");
+        printf("NG\n");
         return 0;
     }
-    for (t = 0.0; y < ylimit; t += 0.1)
+
+    if (ylimit == 0)
+    {
+        printf("0.000\n");
+        return 0;
+    }
+
+    for (t = 0.0; ; t += 0.1)
     {
         v = g * t;
-        y = g * t * t / 2;
+        y = g * t * t / 2.0;
+
+        if (y >= ylimit)
+        {
+            printf("%.3f\n", v);
+            break;
+        }
     }
-    printf("%.1f", v);
+
     return 0;
 }
